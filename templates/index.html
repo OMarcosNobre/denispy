@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Gauge Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+        .container-graph {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: ;
+            height: 100vh;
+            font-family: sans-serif;
+            gap: 12px;
+        }
+        .formForm {
+            display: grid;
+            text-align: center;
+            gap: 8px;
+        }
+        .inputForm {
+            text-align: center;
+            padding: 8px;
+            font-size: 16px;
+        }
+        .submitForm {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <section class="container-graph">
+        <h1>Gerador de Gráfico tacometro</h1>
+        <form method="POST" class="formForm">
+            <label for="gauge_max">Total de Municipios do estado</label>
+            <input type="number" class="inputForm" id="gauge_max" name="gauge_max" step="any" placeholder="500" value="{{ gauge_max }}">
+            <br>
+            <label for="value">Numero atual de Municipios com casos</label>
+            <input type="number" class="inputForm" id="value" name="value" step="1" placeholder="250" value="{{ value }}">
+            <br>
+            <label for="delta">Numero anterior de Municipios com casos</label>
+            <input type="number" class="inputForm" id="delta" name="delta" step="any" placeholder="500" value="{{ delta }}">
+            <br>
+            <button type="submit" class="submitForm">Criar</button>
+        </form>
+        <div id="chart"></div>
+    </section>
+    <script>
+        // Renderizar o gráfico usando o JSON passado do backend
+        const graphData = {{ graph_json | safe }};
+        Plotly.react('chart', graphData.data, graphData.layout);
+    </script>
+</body>
+</html>
