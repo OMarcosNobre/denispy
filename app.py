@@ -27,10 +27,9 @@ def index():
 
     # Criar o gráfico
     fig = go.Figure(go.Indicator(
-        mode="gauge+number+delta",
+        mode="gauge+delta", # Caso queira mostrar o número de municipios com casos no gráfico basta adicionar o number ex.: mode="gauge+number+delta"
         value=value,
         domain={'x': [0, 1], 'y': [0, 1]},
-        title={'text': " "},
         delta = {'reference': delta, 'increasing': {'color': 'red'}, 'decreasing': {'color': 'green'}},
         gauge={
             'axis': {
@@ -44,6 +43,15 @@ def index():
     
     fig.update_layout(
         width=600,  # Define a largura máxima da imagem
+        margin=dict(t=50, b=0),  # Aumenta a margem superior para criar espaço
+        title={
+            'y': 0.9,  # Define a posição vertical do título (1 é no topo do gráfico)
+            'x': 0.5,  # Centraliza o título horizontalmente
+            'xanchor': 'center',
+            'yanchor': 'top',
+            'text': f"<b>{value}</b> cidades com clima favorável para transmissão",  # Título
+            'font': {'size': 24}  # Tamanho da fonte do título
+        }
     )
 
     # Converter o gráfico em JSON

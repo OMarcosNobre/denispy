@@ -38,15 +38,15 @@
 </head>
 <body>
     <section class="container-graph">
-        <h1>Gerador de Gráfico tacometro</h1>
+        <h1>Gerador de Gráfico Tacometro</h1>
         <form method="POST" class="formForm">
             <label for="gauge_max">Total de Municipios do estado</label>
             <input type="number" class="inputForm" id="gauge_max" name="gauge_max" step="any" placeholder="500" value="{{ gauge_max }}">
             <br>
-            <label for="value">Numero atual de Municipios com casos</label>
+            <label for="value">Número atual de<br> cidades/municipios com clima favorável para transmissão</label>
             <input type="number" class="inputForm" id="value" name="value" step="1" placeholder="250" value="{{ value }}">
             <br>
-            <label for="delta">Numero anterior de Municipios com casos</label>
+            <label for="delta">Número anterior de<br>cidades/municipios com clima favorável para transmissão</label>
             <input type="number" class="inputForm" id="delta" name="delta" step="any" placeholder="500" value="{{ delta }}">
             <br>
             <button type="submit" class="submitForm">Criar</button>
