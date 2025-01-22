@@ -42,7 +42,8 @@ def index():
     ))
     
     fig.update_layout(
-        width=600,  # Define a largura máxima da imagem
+        width=600,
+        height=460,  # Define a largura máxima da imagem
         margin=dict(t=50, b=0),  # Aumenta a margem superior para criar espaço
         title={
             'y': 0.9,  # Define a posição vertical do título (1 é no topo do gráfico)
@@ -50,7 +51,7 @@ def index():
             'xanchor': 'center',
             'yanchor': 'top',
             'text': f"<b>{value}</b> cidades com clima favorável para transmissão",  # Título
-            'font': {'size': 24}  # Tamanho da fonte do título
+            'font': {'size': 22}  # Tamanho da fonte do título
         }
     )
 
