@@ -42,6 +42,7 @@ def index():
     ))
     
     fig.update_layout(
+        # autosize=True,  # Permite que o gráfico se ajuste automaticamente ao container
         width=600,
         height=460,  # Define a largura máxima da imagem
         margin=dict(t=50, b=0),  # Aumenta a margem superior para criar espaço
